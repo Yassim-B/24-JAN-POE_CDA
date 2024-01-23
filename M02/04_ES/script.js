@@ -1,39 +1,60 @@
-function Livre(titre, sous_titre, annee, auteur) {
-    this.titre = titre;
-    this.sous_titre = sous_titre;
-    this.annee = annee;
-    this.auteur = auteur;
-}
+// Décomposition (Spread)
+const tableau1 = [1, 2, 3]
+const tableau2 = [...tableau1, 4, 5]
+const tableau3 = [...tableau1, ...tableau2]
+console.log(tableau3)
 
-Livre.prototype.getDescription = function () {
-    return `${this.titre} a été écrit par ${this.auteur} en ${this.annee}`
-}
+// Destructuration
 
-const livre = new Livre("Les visions de Dune", "Dans les creux et sillons d'Arrakis", 2020, "Vivien LeJeune")
-console.table(livre)
-console.log(livre.getDescription())
+//Définir un objet
+const personne = {nom: 'John', age: 30, ville: 'New York'};
 
+// Destructuration de l'objet
+const {nom, age, ville} = personne;
 
-const LivrePrototype = {
-    getDescription: function () {
-        return `${this.titre} a été écrit par ${this.auteur} en ${this.annee}`
+console.log(nom)
+console.log(age)
+console.log(ville)
+
+// Exemple avec un tableau de fruit
+
+const fruits = ['Pomme', 'Banane', 'Orange']
+const [fruit1, fruit2, fruit3] = fruits;
+console.log(fruit1)
+console.log(fruit2)
+console.log(fruit3)
+
+// big int
+const unTresGrandNombre = 123456789123456789123456789n;
+console.log(unTresGrandNombre)
+
+// Séparateur de millier
+const milliard = 1_000_000_000;
+console.log(milliard)
+
+// Elvis operator
+let christine = {
+    nom: 'christine',
+    adresse: {
+        numero: 42,
+        rue: 'acacia'
     }
 }
 
-const livre2 = Object.create(LivrePrototype)
-livre2.titre = 'Uncharted'
-livre2.sous_titre = "Journal d'un explorateur"
-livre2.annee = 2018
-livre2.auteur = 'Bruno Provezza'
+if (christine) {
+    if (christine.adresse) {
+        if (christine.adresse.rue) {
+            console.log(christine.adresse.rue)
+        }
+    }
+}
 
-const livre3 = Object.create(LivrePrototype, {
-    titre: {value: "Uncharted"},
-    sous_titre: {value: "Journal d'un explorateur"},
-    annee: {value: 2018},
-    auteur: {value: 'Bruno Provezza'}
-})
+console.log(christine?.adresse?.rue);
 
-console.table(livre2)
-console.table(livre3)
-console.log(livre2.getDescription())
-console.log(livre3.getDescription())
+// ?? : valeur par défaut
+
+let ordinateur = {
+    tps_de_traitement: 0
+}
+
+const duree = ordinateur?.tps_de_traitement ?? 50; // La durée est de 50 si tps_de_traitementest null
