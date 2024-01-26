@@ -3,7 +3,7 @@
 </div>
 
 <div>
-  <a *ngFor="let chaque_super of supers">
-    <img [src]="chaque_super.images.sm">
+  <a *ngFor="let chaque_super of supers" [routerLink]="['/un-seul-super-hero', chaque_super.id]">
+    <img [src]="chaque_super.image">
   </a>
 </div>
