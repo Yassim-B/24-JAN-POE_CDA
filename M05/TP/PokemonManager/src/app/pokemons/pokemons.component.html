@@ -1,0 +1,23 @@
+<div *ngFor="let pokemon of pokemons">
+  <div>
+    {{pokemon.name}}
+
+    <ul>
+      <li> Catégorie : {{pokemon.categorie}}</li>
+      <div>
+        <li>
+          Type : <span *ngFor="let type of pokemon.type"> {{type | lowercase}} </span>
+        </li>
+        <li>
+          Taille : {{pokemon.height}}
+        </li>
+        <li>
+          Poids : {{pokemon.weight}} kg
+        </li>
+      </div>
+
+    </ul>
+  </div>
+
+
+</div>
