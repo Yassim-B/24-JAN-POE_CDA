@@ -1,3 +1,26 @@
+<p>{{nbPokemon}} pokémons en base de données</p>
+
+<h1>GENERATIONS</h1>
+<div *ngIf="generations | async as generations">
+  <div *ngFor="let generation of generations.results">
+    {{ generation.name}}
+  </div>
+</div>
+
+
+<h1> Les pokemon de l'API</h1>
+<div *ngIf="pokemonsApi | async as pokemonsApi">
+  <div *ngFor="let pokemon of pokemonsApi.results">
+    {{ pokemon.name}}
+  </div>
+  <h1> pokemon  41 </h1>
+
+  <div *ngIf="pokemons41Api | async as pokemons41Api">
+    <img [src]="pokemons41Api.sprites.front_default">
+
+</div>
+
+
 <div *ngFor="let pokemon of pokemons">
   <div>
     {{pokemon.name}}
